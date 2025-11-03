@@ -11,6 +11,7 @@ Route::get('/', function () {
   // $posts = Post::all();
   $posts = [];
   if (Auth::check()) {
+
     $posts = Auth::user()->userPosts()->latest()->get();
     $user = Auth::user();
   }
@@ -24,3 +25,5 @@ Route::post('/login', [UserController::class, 'login']);
 
 // Blog post routes
 Route::post('/create-post', [PostController::class, 'createPost']);
+Route::get('/edit-post/{post}', [PostController::class, 'showEditForm']);
+Route::put('/edit-post/{post}', [PostController::class, 'updatePost']);

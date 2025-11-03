@@ -34,6 +34,13 @@
         <h3>{{ $post->title }}</h3>
         <p>{{ $post->body }}</p>
         <p>By User ID: {{ $post->user_id }}</p>
+        <p><a href="/edit-post/{{$post->id}}">Edit post</a></p>
+        <form action="/delete-post/{{$post->id}}" method="POST">
+          @csrf
+           {{ csrf_field() }}
+           @method('DELETE')
+        <button>Delete Post</button>
+        </form>
       </div>
     @endforeach
   </div>
