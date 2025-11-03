@@ -26,6 +26,17 @@
       <button>Create Post</button>
     </form>
   </div>
+
+   <div style="border: 3px solid black;">
+    <h2>All posts - {{$user->name}}</h2>
+    @foreach ($posts as $post)
+      <div style="border: 1px solid gray; margin:10px; padding:10px;">
+        <h3>{{ $post->title }}</h3>
+        <p>{{ $post->body }}</p>
+        <p>By User ID: {{ $post->user_id }}</p>
+      </div>
+    @endforeach
+  </div>
 @else
 <div style="border: 3px solid black;">
     <h2>Register</h2>
