@@ -10,6 +10,7 @@ Route::get('/', function () {
   // $posts = Post::where('user_id', Auth::id())->get();
   // $posts = Post::all();
   $posts = [];
+  $user = null;
   if (Auth::check()) {
 
     $posts = Auth::user()->userPosts()->latest()->get();
